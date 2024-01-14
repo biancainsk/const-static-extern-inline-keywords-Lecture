@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.15)
+project(MyProject VERSION 1.0 LANGUAGES C CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+set(CMAKE_CXX_FLAGS "-Wall -Wextra")
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3")
+
+add_compile_options(-Werror=vla) # Treat VLA usage as an error
+
+add_executable(MyExecutable main.cpp src.cpp)
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
